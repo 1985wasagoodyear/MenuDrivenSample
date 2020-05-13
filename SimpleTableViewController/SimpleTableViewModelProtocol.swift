@@ -23,5 +23,7 @@ public protocol SimpleTableViewModelProtocol {
     var sectionCount: Int { get }
     func rowCount(in section: Int) -> Int
     func title(for indexPath: IndexPath) -> String
+    func subtitle(for indexPath: IndexPath) -> String?
+    func image(for indexPath: IndexPath, _ completion: @escaping (Data?) -> Void)
     
 }

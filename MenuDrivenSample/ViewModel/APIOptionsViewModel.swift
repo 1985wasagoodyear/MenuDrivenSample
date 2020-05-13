@@ -39,4 +39,12 @@ class APIOptionsViewModel: SimpleTableViewModelProtocol {
         API.allCases[indexPath.row].rawValue
     }
     
+    func subtitle(for indexPath: IndexPath) -> String? {
+        nil
+    }
+    
+    func image(for indexPath: IndexPath, _ completion: @escaping (Data?) -> Void) {
+        return
+    }
+    
 }

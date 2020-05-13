@@ -20,16 +20,28 @@ class MainMenuViewController: SimpleTableViewController {
     }()
     
     var popover: UIViewController?
+    let menuViewModel: MainMenuViewModel
     
-    override init(viewModel: SimpleTableViewModelProtocol,
-                  delegate: SimpleTableDelegate? = nil) {
+    init(viewModel: MainMenuViewModel,
+         delegate: SimpleTableDelegate? = nil) {
+        self.menuViewModel = viewModel
         super.init(viewModel: viewModel, delegate: delegate)
         tableView.backgroundView = UIView()
         navigationItem.setRightBarButton(menuButton, animated: false)
+        menuViewModel.bind {
+            DispatchQueue.main.async {
+                self.title = self.menuViewModel.currentTitle
+                self.tableView.reloadData()
+            }
+        }
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    deinit {
+        viewModel.unbind()
     }
     
     @objc func menuButtonAction(_ sender: UIBarButtonItem) {
@@ -64,9 +76,9 @@ extension MainMenuViewController: SimpleTableDelegate {
     
     func didSelect(at indexPath: IndexPath) {
         guard let popover = popover else { return }
-        popover.dismiss(animated: true, completion: {
-            print("done")
-        })
+        popover.dismiss(animated: true) {
+            self.menuViewModel.select(indexPath)
+        }
     }
     
 }

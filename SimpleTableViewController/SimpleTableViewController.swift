@@ -11,19 +11,34 @@
 import UIKit
 import CommonUtils
 
-private enum Constants {
-    static let cellID = "CellID"
+class SubtitleTableViewCell: UITableViewCell {
+    
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: .subtitle, reuseIdentifier: reuseIdentifier)
+        textLabel?.numberOfLines = 0
+        detailTextLabel?.numberOfLines = 0
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 }
 
 open class SimpleTableViewController: UIViewController {
+    
+    private enum Constants {
+        static let cellID = "CellID"
+    }
     
     public lazy var tableView: UITableView = {
         let table = UITableView(frame: .zero, style: .plain)
         table.dataSource = self
         table.delegate = self
         table.fillIn(self.view)
+        table.estimatedRowHeight = 100.0
+        table.rowHeight = UITableView.automaticDimension
         table.tableFooterView = UIView()
-        table.register(UITableViewCell.self,
+        table.register(SubtitleTableViewCell.self,
                        forCellReuseIdentifier: Constants.cellID)
         return table
     }()
@@ -50,7 +65,13 @@ open class SimpleTableViewController: UIViewController {
     required public init?(coder: NSCoder) {
         fatalError("initWithCoder: not implemented. Please use initWithViewModel:")
     }
+    
+    deinit {
+        viewModel.unbind()
+    }
+
 }
+
 extension SimpleTableViewController: UITableViewDataSource {
     
     public func numberOfSections(in tableView: UITableView) -> Int {
@@ -64,8 +85,30 @@ extension SimpleTableViewController: UITableViewDataSource {
     
     public func tableView(_ tableView: UITableView,
                           cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: Constants.cellID, for: indexPath)
+        let cell: UITableViewCell = {
+            let cellId = Constants.cellID
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: cellId) else {
+                let subtitleCell = UITableViewCell(style: .subtitle, reuseIdentifier: cellId)
+                return subtitleCell
+            }
+            return cell
+        }()
         cell.textLabel?.text = viewModel.title(for: indexPath)
+        cell.detailTextLabel?.text = viewModel.subtitle(for: indexPath)
+        viewModel.image(for: indexPath) { data in
+            let image: UIImage?
+            defer {
+                DispatchQueue.main.async {
+                    cell.imageView?.image = image
+                    cell.layoutSubviews()
+                }
+            }
+            guard let data = data else {
+                image = nil
+                return
+            }
+            image = UIImage(data: data)
+        }
         return cell
     }
 

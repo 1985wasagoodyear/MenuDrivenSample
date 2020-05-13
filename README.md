@@ -6,12 +6,13 @@ Simple MVVM sample, consuming JSONPlaceholder, from [typicode.com](https://jsonp
 
 1. Build
 2. Layout
-3. Todo
+3. Discussion
+4. Todo
 
 
 ## 1. Build
 
-This project is build with Xcode Version 11.3 (11C29), using Swift 5.0, targetting iOS 11.0.
+This project is build with *Xcode Version 11.3 (11C29)*, using *Swift 5.0*, targetting *iOS 11.0*.
 
 No dependencies are required.
 
@@ -25,7 +26,16 @@ There are four targets within this project:
 3. `MenuDrivenSample`, the main focus of this program, demonstrating usage of an MVVM application.
 4. `MenuDrivenSampleTest`, tests for `MenuDrivenSample` using XCTest.
 
-## 3. Todo
+
+Todo: describe types of data from endpoint here:
+
+
+## 3. Discussion
+
+Todo...?
+
+
+## 4. Todo
 
 1. Tests could use configuration, arrangement.
 	* currently code coverage for `MenuDrivenSample ` is 12.5%.
@@ -35,3 +45,5 @@ There are four targets within this project:
 3. Add more to this README.
 
 4. Add error-handling & recognition within a State-driven implementation.
+
+5. Is there a more polymorphic way to handle `fetch(api:completion:)` in `APIService.swift`?

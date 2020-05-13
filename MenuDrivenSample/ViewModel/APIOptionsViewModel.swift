@@ -10,7 +10,7 @@
 
 import SimpleTableViewController
 
-class APIOptionsViewModel: SimpleTableViewModelProtocol {
+final class APIOptionsViewModel: SimpleTableViewModelProtocol {
     
     private var handler: ViewModelHandler?
     

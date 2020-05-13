@@ -9,83 +9,7 @@
 //
 
 import SimpleTableViewController
-
-
-import Foundation
-
-
-final class ImageDownloadService {
-    
-    // MARK: - Properties
-    
-    private var enqueued = Set<String>()
-    private let cache = NSCache<NSString, NSData>()
-    private let session: URLSession
-    private let queue: DispatchQueue
-    
-    // MARK: - Init
-    
-    init() {
-        let config = URLSessionConfiguration.default
-        session = URLSession(configuration: config)
-        queue = DispatchQueue(label: "ImageDownloadService", qos: .utility, attributes: .concurrent)
-    }
-    
-    // MARK: - Method
-    func downloadImage(_ urlString: String,
-                       _ completion: @escaping (Data?) -> Void) {
-        guard let url = URL(string: urlString) else {
-            completion(nil); return
-        }
-        downloadImage(url, completion)
-    }
-    
-    func downloadImage(_ url: URL,
-                       _ completion: @escaping (Data?) -> Void) {
-        let urlString = url.absoluteString
-        let nsStr = NSString(string: urlString)
-        if let nsDat = cache.object(forKey: nsStr) {
-            completion(Data(referencing: nsDat))
-            return
-        }
-        if enqueued.contains(urlString) {
-            completion(nil)
-            return
-        }
-        guard let url = URL(string: urlString) else {
-            completion(nil)
-            return
-        }
-        enqueued.insert(urlString)
-        session.dataTask(with: url) { (data, _, _) in
-            guard let dat = data else {
-                completion(nil)
-                return
-            }
-            self.cache.setObject(NSData(data: dat), forKey: nsStr)
-            self.enqueued.remove(urlString)
-        }.resume()
-    }
-}
-
-class APIService {
-    
-    private let networker: NetworkService = NetworkService()
-    
-    func fetch<T: Decodable>(type: T.Type,
-                             api: API,
-                             _ completion: @escaping (Result<T, Error>) -> Void) {
-        networker.dataTask(type: T.self, url: api.url, params: nil) { (result) in
-            switch result {
-            case .success(let items):
-                completion(.success(items))
-            case .failure(let error):
-                completion(.failure(error))
-            }
-        }
-    }
-    
-}
+import CommonUtils
 
 class MainMenuViewModel: SimpleTableViewModelProtocol {
     
@@ -183,7 +107,7 @@ extension MainMenuViewModel {
         guard let url = items[indexPath.row].imageUrl else {
             completion(nil); return
         }
-        imageService.downloadImage(url, completion)
+        imageService.download(url, completion)
     }
     
 }

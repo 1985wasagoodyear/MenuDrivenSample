@@ -10,7 +10,7 @@
 
 import Foundation
 
-enum NetworkError: Error {
+public enum NetworkError: Error {
     case unknownError
     case connectionError
     case invalidCredentials
@@ -24,13 +24,13 @@ enum NetworkError: Error {
     case emptyResult
 }
 
-enum HTTPVerb: String {
+public enum HTTPVerb: String {
     case GET
     case PUT
     case POST
 }
 
-final class NetworkService {
+public final class NetworkService {
     
     // MARK: - Properties
     
@@ -38,22 +38,22 @@ final class NetworkService {
     
     // MARK: - Initialization
     
-    init() {
+    public init() {
         let config = URLSessionConfiguration.default
         session = URLSession(configuration: config)
     }
     
-    init(_ session: URLSession) {
+    public init(_ session: URLSession) {
         self.session = session
     }
     
     // MARK: - Endpoint Accessors
     
-    func dataTask<T: Decodable>(type: T.Type,
-                                url: URL,
-                                verb: HTTPVerb = .GET,
-                                params: [String: String]?,
-                                completion: @escaping (Result<T, NetworkError>) -> Void) {
+    public func dataTask<T: Decodable>(type: T.Type,
+                                       url: URL,
+                                       verb: HTTPVerb = .GET,
+                                       params: [String: String]?,
+                                       completion: @escaping (Result<T, NetworkError>) -> Void) {
         dataTaskHelper(type: T.self,
                        url: url,
                        verb: verb,

@@ -1,5 +1,5 @@
 //
-//  APIOptionsViewModel.swift
+//  MainMenuViewModel.swift
 //  Created 5/12/20
 //  Using Swift 5.0
 // 
@@ -10,9 +10,19 @@
 
 import SimpleTableViewController
 
-class APIOptionsViewModel: SimpleTableViewModelProtocol {
+struct Item {
+    let title: String
+}
+
+class MainMenuViewModel: SimpleTableViewModelProtocol {
     
     private var handler: ViewModelHandler?
+    
+    private var items: [Item] = [] {
+        didSet {
+            handler?()
+        }
+    }
     
     func bind(_ handler: @escaping ViewModelHandler) {
         self.handler = handler
@@ -27,16 +37,24 @@ class APIOptionsViewModel: SimpleTableViewModelProtocol {
         handler = nil
     }
     
+    func select(_ option: API) {
+        
+    }
+    
+}
+
+extension MainMenuViewModel {
+    
     var sectionCount: Int {
-        1
+        1 // items.count
     }
     
     func rowCount(in section: Int) -> Int {
-        API.allCases.count
+        items.count
     }
     
     func title(for indexPath: IndexPath) -> String {
-        API.allCases[indexPath.row].rawValue
+        items[indexPath.row].title
     }
     
 }

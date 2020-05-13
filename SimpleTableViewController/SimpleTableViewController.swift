@@ -11,24 +11,25 @@
 import UIKit
 import CommonUtils
 
-final public class SimpleTableViewController: UIViewController {
+private enum Constants {
+    static let cellID = "CellID"
+}
+
+open class SimpleTableViewController: UIViewController {
     
-    enum Constants {
-        static let cellID = "CellID"
-    }
-    
-    lazy var tableView: UITableView = {
+    public lazy var tableView: UITableView = {
         let table = UITableView(frame: .zero, style: .plain)
         table.dataSource = self
         table.delegate = self
         table.fillIn(self.view)
+        table.tableFooterView = UIView()
         table.register(UITableViewCell.self,
                        forCellReuseIdentifier: Constants.cellID)
         return table
     }()
     
-    let viewModel: SimpleTableViewModelProtocol
-    weak var delegate: SimpleTableDelegate?
+    public let viewModel: SimpleTableViewModelProtocol
+    weak open var delegate: SimpleTableDelegate?
     
     public init(viewModel: SimpleTableViewModelProtocol,
                 delegate: SimpleTableDelegate? = nil) {
@@ -37,19 +38,19 @@ final public class SimpleTableViewController: UIViewController {
         
         super.init(nibName: nil, bundle: nil)
         
-        viewModel.bind {
+        view.backgroundColor = .white
+        
+        viewModel.bindAndFire {
             DispatchQueue.main.async {
                 self.tableView.reloadData()
             }
         }
     }
     
-    required init?(coder: NSCoder) {
+    required public init?(coder: NSCoder) {
         fatalError("initWithCoder: not implemented. Please use initWithViewModel:")
     }
- 
 }
-
 extension SimpleTableViewController: UITableViewDataSource {
     
     public func numberOfSections(in tableView: UITableView) -> Int {
@@ -67,7 +68,7 @@ extension SimpleTableViewController: UITableViewDataSource {
         cell.textLabel?.text = viewModel.title(for: indexPath)
         return cell
     }
-    
+
 }
 
 extension SimpleTableViewController: UITableViewDelegate {

@@ -11,16 +11,28 @@
 import UIKit
 import SimpleTableViewController
 
-class MainMenuViewController: UIViewController {
+class MainMenuViewController: SimpleTableViewController {
 
-    @IBOutlet var menuButton: UIBarButtonItem!
+    lazy var menuButton: UIBarButtonItem = {
+        return UIBarButtonItem(barButtonSystemItem: .search,
+                                     target: self,
+                                     action: #selector(menuButtonAction(_:)))
+    }()
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
+    var popover: UIViewController?
+    
+    override init(viewModel: SimpleTableViewModelProtocol,
+                  delegate: SimpleTableDelegate? = nil) {
+        super.init(viewModel: viewModel, delegate: delegate)
+        tableView.backgroundView = UIView()
+        navigationItem.setRightBarButton(menuButton, animated: false)
     }
-
-    @IBAction func menuButtonAction(_ sender: Any) {
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    @objc func menuButtonAction(_ sender: UIBarButtonItem) {
         let optionsVM = APIOptionsViewModel()
         let popoverContent = SimpleTableViewController(viewModel: optionsVM,
                                                 delegate: self)
@@ -28,20 +40,18 @@ class MainMenuViewController: UIViewController {
         
         if let popover = popoverContent.popoverPresentationController {
             
-            let viewForSource = sender as? UIView
-            popover.sourceView = viewForSource
-            
-            // the position of the popover where it's showed
-            popover.sourceRect = viewForSource?.bounds ?? .zero
-            
-            // the size you want to display
-            popoverContent.preferredContentSize = CGSize(width: 200,
-                                                         height: 500)
+            popover.barButtonItem = sender
+            let size = view.frame.size
+            let width = size.width / 2.0
+            let height = size.height / 2.0
+            popoverContent.preferredContentSize = CGSize(width: width,
+                                                         height: height)
             popover.delegate = self
+            popover.permittedArrowDirections = .up
         }
         
         self.present(popoverContent, animated: true, completion: nil)
-        
+        popover = popoverContent
     }
     
     func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
@@ -53,7 +63,10 @@ class MainMenuViewController: UIViewController {
 extension MainMenuViewController: SimpleTableDelegate {
     
     func didSelect(at indexPath: IndexPath) {
-        print(indexPath)
+        guard let popover = popover else { return }
+        popover.dismiss(animated: true, completion: {
+            print("done")
+        })
     }
     
 }

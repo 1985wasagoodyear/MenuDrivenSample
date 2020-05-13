@@ -74,17 +74,17 @@ open class SimpleTableViewController: UIViewController {
 
 extension SimpleTableViewController: UITableViewDataSource {
     
-    public func numberOfSections(in tableView: UITableView) -> Int {
+    open func numberOfSections(in tableView: UITableView) -> Int {
         viewModel.sectionCount
     }
     
-    public func tableView(_ tableView: UITableView,
-                          numberOfRowsInSection section: Int) -> Int {
+    open func tableView(_ tableView: UITableView,
+                        numberOfRowsInSection section: Int) -> Int {
         viewModel.rowCount(in: section)
     }
     
-    public func tableView(_ tableView: UITableView,
-                          cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    open func tableView(_ tableView: UITableView,
+                        cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: UITableViewCell = {
             let cellId = Constants.cellID
             guard let cell = tableView.dequeueReusableCell(withIdentifier: cellId) else {
@@ -100,7 +100,6 @@ extension SimpleTableViewController: UITableViewDataSource {
             defer {
                 DispatchQueue.main.async {
                     cell.imageView?.image = image
-                    cell.layoutSubviews()
                 }
             }
             guard let data = data else {
@@ -116,8 +115,8 @@ extension SimpleTableViewController: UITableViewDataSource {
 
 extension SimpleTableViewController: UITableViewDelegate {
     
-    public func tableView(_ tableView: UITableView,
-                          didSelectRowAt indexPath: IndexPath) {
+    open func tableView(_ tableView: UITableView,
+                        didSelectRowAt indexPath: IndexPath) {
         delegate?.didSelect(at: indexPath)
     }
     

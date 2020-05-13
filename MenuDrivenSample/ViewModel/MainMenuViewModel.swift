@@ -38,47 +38,20 @@ class MainMenuViewModel: SimpleTableViewModelProtocol {
     }
     
     func select(_ option: IndexPath) {
-        
-        func completion(_ result: Result<[JSONPlaceholder], Error>) {
+        guard let api = API(option.row) else {
+            currentTitle = ""; return
+        }
+        currentTitle = api.rawValue
+        fetch(api)
+    }
+    
+    private func fetch(_ api: API) {
+        apiService.fetch(api: api) { result in
             switch result {
             case .success(let items):
                 self.items = items
             case .failure(let error):
                 print(error)
-            }
-        }
-        
-        let row = option.row
-        guard let api = API(row) else {
-            self.currentTitle = ""; return
-        }
-        self.currentTitle = api.rawValue
-        
-        // TODO: - Fix this mess
-        switch api {
-        case .posts:
-            apiService.fetch(type: [Posts].self, api: api) { result in
-                completion(result.flatMap { .success($0 as [JSONPlaceholder]) })
-            }
-        case .comments:
-            apiService.fetch(type: [Comments].self, api: api) { result in
-                completion(result.flatMap { .success($0 as [JSONPlaceholder]) })
-            }
-        case .albums:
-            apiService.fetch(type: [Albums].self, api: api) { result in
-                completion(result.flatMap { .success($0 as [JSONPlaceholder]) })
-            }
-        case .photos:
-            apiService.fetch(type: [Photos].self, api: api) { result in
-                completion(result.flatMap { .success($0 as [JSONPlaceholder]) })
-            }
-        case .todos:
-            apiService.fetch(type: [Todos].self, api: api) { result in
-                completion(result.flatMap { .success($0 as [JSONPlaceholder]) })
-            }
-        case .users:
-            apiService.fetch(type: [Users].self, api: api) { result in
-                completion(result.flatMap { .success($0 as [JSONPlaceholder]) })
             }
         }
     }
@@ -88,7 +61,7 @@ class MainMenuViewModel: SimpleTableViewModelProtocol {
 extension MainMenuViewModel {
     
     var sectionCount: Int {
-        1 // items.count
+        1
     }
     
     func rowCount(in section: Int) -> Int {

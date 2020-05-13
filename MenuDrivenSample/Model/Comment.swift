@@ -1,5 +1,5 @@
 //
-//  Albums.swift
+//  Comment.swift
 //  Created 5/12/20
 //  Using Swift 5.0
 // 
@@ -10,15 +10,20 @@
 
 import Foundation
 
-struct Albums: Decodable {
-    let userId: Int
+struct Comment: Decodable {
+    let postId: Int
     let id: Int
-    let title: String
+    let name: String
+    let email: String
+    let body: String
 }
 
-extension Albums: JSONPlaceholder {
+extension Comment: JSONPlaceholder {
+    var title: String {
+        name
+    }
     var subtitle: String {
-        "Album \(userId), Track \(id)"
+        body
     }
     var imageUrl: URL? {
         nil

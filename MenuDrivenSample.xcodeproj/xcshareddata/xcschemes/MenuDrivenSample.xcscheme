@@ -26,7 +26,8 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
-      shouldUseLaunchSchemeArgsEnv = "YES">
+      shouldUseLaunchSchemeArgsEnv = "YES"
+      codeCoverageEnabled = "YES">
       <Testables>
          <TestableReference
             skipped = "NO">
@@ -35,26 +36,6 @@
                BlueprintIdentifier = "3F84570D246B209C0082AA07"
                BuildableName = "MenuDrivenSampleTests.xctest"
                BlueprintName = "MenuDrivenSampleTests"
-               ReferencedContainer = "container:MenuDrivenSample.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "3F43DB5D246B24BC00C892A6"
-               BuildableName = "SimpleTableViewControllerTests.xctest"
-               BlueprintName = "SimpleTableViewControllerTests"
-               ReferencedContainer = "container:MenuDrivenSample.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "3F43DB87246B253B00C892A6"
-               BuildableName = "CommonUtilsTests.xctest"
-               BlueprintName = "CommonUtilsTests"
                ReferencedContainer = "container:MenuDrivenSample.xcodeproj">
             </BuildableReference>
          </TestableReference>

@@ -10,24 +10,10 @@
 
 import Foundation
 
-protocol JSONPlaceholder: Decodable {
+protocol JSONPlaceholder {
     var title: String { get }
     var subtitle: String { get }
     var imageUrl: URL? { get }
 }
 
-struct AnyJSONPlaceholder {
-    var title: String {
-        value.title
-    }
-    
-    var subtitle: String {
-        value.subtitle
-    }
-    
-    var imageUrl: URL? {
-        value.imageUrl
-    }
-    
-    let value: JSONPlaceholder
-}
+typealias DecodablePlaceholder = JSONPlaceholder & Decodable

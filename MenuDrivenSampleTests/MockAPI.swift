@@ -11,11 +11,12 @@
 import Foundation
 @testable import MenuDrivenSample
 
-class MockAPI {
+final class MockAPI {
     
     let data: Data
+    let decoder: JSONDecoder
     
-    init(_ api: API) throws {
+    init(_ api: API, decoder: JSONDecoder = JSONDecoder()) throws {
         let bundle = Bundle(for: MockAPI.self)
         let name = api.rawValue
         guard let path = bundle.path(forResource: name, ofType: "json") else {
@@ -23,5 +24,11 @@ class MockAPI {
         }
         let url = URL(fileURLWithPath: path)
         data = try Data(contentsOf: url)
+        self.decoder = decoder
     }
+    
+    func load<T: DecodablePlaceholder>(type: T.Type) throws -> [T] {
+        try decoder.decode([T].self, from: data)
+    }
+    
 }

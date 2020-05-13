@@ -51,7 +51,6 @@ class MainMenuViewController: SimpleTableViewController {
         popoverContent.modalPresentationStyle = .popover
         
         if let popover = popoverContent.popoverPresentationController {
-            
             popover.barButtonItem = sender
             let size = view.frame.size
             let width = size.width / 2.0
@@ -62,7 +61,7 @@ class MainMenuViewController: SimpleTableViewController {
             popover.permittedArrowDirections = .up
         }
         
-        self.present(popoverContent, animated: true, completion: nil)
+        present(popoverContent, animated: true, completion: nil)
         popover = popoverContent
     }
     

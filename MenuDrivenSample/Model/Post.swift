@@ -1,5 +1,5 @@
 //
-//  Photos.swift
+//  Post.swift
 //  Created 5/12/20
 //  Using Swift 5.0
 // 
@@ -10,19 +10,18 @@
 
 import Foundation
 
-struct Photos: Decodable {
-    let albumId: Int
+struct Post: Decodable {
+    let userId: Int
     let id: Int
     let title: String
-    let url: URL
-    let thumbnailUrl: URL
+    let body: String
 }
 
-extension Photos: JSONPlaceholder {
+extension Post: JSONPlaceholder {
     var subtitle: String {
-        "Album \(albumId), number \(id)"
+        body
     }
     var imageUrl: URL? {
-        thumbnailUrl
+        nil
     }
 }

@@ -1,5 +1,5 @@
 //
-//  Posts.swift
+//  Album.swift
 //  Created 5/12/20
 //  Using Swift 5.0
 // 
@@ -10,16 +10,15 @@
 
 import Foundation
 
-struct Posts: Decodable {
+struct Album: Decodable {
     let userId: Int
     let id: Int
     let title: String
-    let body: String
 }
 
-extension Posts: JSONPlaceholder {
+extension Album: JSONPlaceholder {
     var subtitle: String {
-        body
+        "Album \(userId), Track \(id)"
     }
     var imageUrl: URL? {
         nil

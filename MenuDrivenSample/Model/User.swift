@@ -1,5 +1,5 @@
 //
-//  Users.swift
+//  User.swift
 //  Created 5/12/20
 //  Using Swift 5.0
 // 
@@ -10,7 +10,7 @@
 
 import Foundation
 
-struct Users: Decodable {
+struct User: Decodable {
     let id: Int
     let name: String
     let username: String
@@ -21,7 +21,7 @@ struct Users: Decodable {
     let company: Company
 }
 
-extension Users: JSONPlaceholder {
+extension User: JSONPlaceholder {
     var title: String {
         name
     }

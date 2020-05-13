@@ -1,5 +1,5 @@
 //
-//  Comments.swift
+//  Todo.swift
 //  Created 5/12/20
 //  Using Swift 5.0
 // 
@@ -10,20 +10,16 @@
 
 import Foundation
 
-struct Comments: Decodable {
-    let postId: Int
+struct Todo: Decodable {
+    let userId: Int
     let id: Int
-    let name: String
-    let email: String
-    let body: String
+    let title: String
+    let completed: Bool
 }
 
-extension Comments: JSONPlaceholder {
-    var title: String {
-        name
-    }
+extension Todo: JSONPlaceholder {
     var subtitle: String {
-        body
+        completed ? "Completed" : "Not Completed"
     }
     var imageUrl: URL? {
         nil

@@ -1,5 +1,5 @@
 //
-//  Todos.swift
+//  Photo.swift
 //  Created 5/12/20
 //  Using Swift 5.0
 // 
@@ -10,18 +10,19 @@
 
 import Foundation
 
-struct Todos: Decodable {
-    let userId: Int
+struct Photo: Decodable {
+    let albumId: Int
     let id: Int
     let title: String
-    let completed: Bool
+    let url: URL
+    let thumbnailUrl: URL
 }
 
-extension Todos: JSONPlaceholder {
+extension Photo: JSONPlaceholder {
     var subtitle: String {
-        completed ? "Completed" : "Not Completed"
+        "Album \(albumId), number \(id)"
     }
     var imageUrl: URL? {
-        nil
+        thumbnailUrl
     }
 }

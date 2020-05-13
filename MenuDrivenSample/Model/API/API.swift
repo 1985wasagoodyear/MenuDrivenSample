@@ -31,17 +31,17 @@ enum API: String, CaseIterable {
     var type: JSONPlaceholder.Type {
         switch self {
         case .posts:
-            return Posts.self
+            return Post.self
         case .comments:
-            return Comments.self
+            return Comment.self
         case .albums:
-            return Albums.self
+            return Album.self
         case .photos:
-            return Photos.self
+            return Photo.self
         case .todos:
-            return Todos.self
+            return Todo.self
         case .users:
-            return Users.self
+            return User.self
         }
     }
 }

@@ -33,12 +33,12 @@
 		3FAFA0B5246B98BF00AF6F1D /* todos.json in Resources */ = {isa = PBXBuildFile; fileRef = 3FAFA0B4246B98BF00AF6F1D /* todos.json */; };
 		3FAFA0B7246B98C200AF6F1D /* users.json in Resources */ = {isa = PBXBuildFile; fileRef = 3FAFA0B6246B98C200AF6F1D /* users.json */; };
 		3FAFA0B9246B98CF00AF6F1D /* MockAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FAFA0B8246B98CF00AF6F1D /* MockAPI.swift */; };
-		3FAFA0BB246B99A100AF6F1D /* Posts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FAFA0BA246B99A100AF6F1D /* Posts.swift */; };
-		3FAFA0BD246B99A600AF6F1D /* Comments.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FAFA0BC246B99A600AF6F1D /* Comments.swift */; };
-		3FAFA0BF246B99AC00AF6F1D /* Albums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FAFA0BE246B99AC00AF6F1D /* Albums.swift */; };
-		3FAFA0C1246B99B300AF6F1D /* Photos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FAFA0C0246B99B300AF6F1D /* Photos.swift */; };
-		3FAFA0C3246B99BD00AF6F1D /* Todos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FAFA0C2246B99BD00AF6F1D /* Todos.swift */; };
-		3FAFA0C5246B99C300AF6F1D /* Users.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FAFA0C4246B99C300AF6F1D /* Users.swift */; };
+		3FAFA0BB246B99A100AF6F1D /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FAFA0BA246B99A100AF6F1D /* Post.swift */; };
+		3FAFA0BD246B99A600AF6F1D /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FAFA0BC246B99A600AF6F1D /* Comment.swift */; };
+		3FAFA0BF246B99AC00AF6F1D /* Album.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FAFA0BE246B99AC00AF6F1D /* Album.swift */; };
+		3FAFA0C1246B99B300AF6F1D /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FAFA0C0246B99B300AF6F1D /* Photo.swift */; };
+		3FAFA0C3246B99BD00AF6F1D /* Todo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FAFA0C2246B99BD00AF6F1D /* Todo.swift */; };
+		3FAFA0C5246B99C300AF6F1D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FAFA0C4246B99C300AF6F1D /* User.swift */; };
 		3FD8E8B9246BB03F001CA0DA /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD8E8B8246BB03F001CA0DA /* APIService.swift */; };
 		3FD8E8BA246BB063001CA0DA /* ImageDownloadService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD8E8B5246BAF4C001CA0DA /* ImageDownloadService.swift */; };
 		3FD8E8BB246BB066001CA0DA /* Networker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FAFA0A6246B979200AF6F1D /* Networker.swift */; };
@@ -115,14 +115,15 @@
 		3FAFA0B4246B98BF00AF6F1D /* todos.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = todos.json; sourceTree = "<group>"; };
 		3FAFA0B6246B98C200AF6F1D /* users.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = users.json; sourceTree = "<group>"; };
 		3FAFA0B8246B98CF00AF6F1D /* MockAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockAPI.swift; sourceTree = "<group>"; };
-		3FAFA0BA246B99A100AF6F1D /* Posts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Posts.swift; sourceTree = "<group>"; };
-		3FAFA0BC246B99A600AF6F1D /* Comments.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comments.swift; sourceTree = "<group>"; };
-		3FAFA0BE246B99AC00AF6F1D /* Albums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Albums.swift; sourceTree = "<group>"; };
-		3FAFA0C0246B99B300AF6F1D /* Photos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photos.swift; sourceTree = "<group>"; };
-		3FAFA0C2246B99BD00AF6F1D /* Todos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Todos.swift; sourceTree = "<group>"; };
-		3FAFA0C4246B99C300AF6F1D /* Users.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Users.swift; sourceTree = "<group>"; };
+		3FAFA0BA246B99A100AF6F1D /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		3FAFA0BC246B99A600AF6F1D /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
+		3FAFA0BE246B99AC00AF6F1D /* Album.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Album.swift; sourceTree = "<group>"; };
+		3FAFA0C0246B99B300AF6F1D /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
+		3FAFA0C2246B99BD00AF6F1D /* Todo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Todo.swift; sourceTree = "<group>"; };
+		3FAFA0C4246B99C300AF6F1D /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		3FD8E8B5246BAF4C001CA0DA /* ImageDownloadService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDownloadService.swift; sourceTree = "<group>"; };
 		3FD8E8B8246BB03F001CA0DA /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
+		3FFFFBA2246C1B3E00EEF354 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -195,6 +196,7 @@
 		3F8456EF246B20980082AA07 = {
 			isa = PBXGroup;
 			children = (
+				3FFFFBA2246C1B3E00EEF354 /* README.md */,
 				3F43DB81246B253B00C892A6 /* CommonUtils */,
 				3F43DB57246B24BC00C892A6 /* SimpleTableViewController */,
 				3F8456FA246B20980082AA07 /* MenuDrivenSample */,
@@ -277,12 +279,12 @@
 			children = (
 				3F845725246B231B0082AA07 /* API */,
 				3FAFA0A9246B984000AF6F1D /* JSONPlaceholder.swift */,
-				3FAFA0BA246B99A100AF6F1D /* Posts.swift */,
-				3FAFA0BC246B99A600AF6F1D /* Comments.swift */,
-				3FAFA0BE246B99AC00AF6F1D /* Albums.swift */,
-				3FAFA0C0246B99B300AF6F1D /* Photos.swift */,
-				3FAFA0C2246B99BD00AF6F1D /* Todos.swift */,
-				3FAFA0C4246B99C300AF6F1D /* Users.swift */,
+				3FAFA0BA246B99A100AF6F1D /* Post.swift */,
+				3FAFA0BC246B99A600AF6F1D /* Comment.swift */,
+				3FAFA0BE246B99AC00AF6F1D /* Album.swift */,
+				3FAFA0C0246B99B300AF6F1D /* Photo.swift */,
+				3FAFA0C2246B99BD00AF6F1D /* Todo.swift */,
+				3FAFA0C4246B99C300AF6F1D /* User.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -531,16 +533,16 @@
 				3F845700246B20980082AA07 /* MainMenuViewController.swift in Sources */,
 				3FD8E8B9246BB03F001CA0DA /* APIService.swift in Sources */,
 				3F84571F246B21D30082AA07 /* API.swift in Sources */,
-				3FAFA0BD246B99A600AF6F1D /* Comments.swift in Sources */,
+				3FAFA0BD246B99A600AF6F1D /* Comment.swift in Sources */,
 				3F43DBA1246B2AA500C892A6 /* MainMenuViewModel.swift in Sources */,
 				3F8456FC246B20980082AA07 /* AppDelegate.swift in Sources */,
-				3FAFA0C1246B99B300AF6F1D /* Photos.swift in Sources */,
-				3FAFA0BF246B99AC00AF6F1D /* Albums.swift in Sources */,
+				3FAFA0C1246B99B300AF6F1D /* Photo.swift in Sources */,
+				3FAFA0BF246B99AC00AF6F1D /* Album.swift in Sources */,
 				3F43DB79246B24FB00C892A6 /* APIOptionsViewModel.swift in Sources */,
 				3FAFA0AA246B984000AF6F1D /* JSONPlaceholder.swift in Sources */,
-				3FAFA0C5246B99C300AF6F1D /* Users.swift in Sources */,
-				3FAFA0BB246B99A100AF6F1D /* Posts.swift in Sources */,
-				3FAFA0C3246B99BD00AF6F1D /* Todos.swift in Sources */,
+				3FAFA0C5246B99C300AF6F1D /* User.swift in Sources */,
+				3FAFA0BB246B99A100AF6F1D /* Post.swift in Sources */,
+				3FAFA0C3246B99BD00AF6F1D /* Todo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -602,9 +604,11 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MACH_O_TYPE = mh_dylib;
 				PRODUCT_BUNDLE_IDENTIFIER = yu.SimpleTableViewController;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
@@ -629,9 +633,11 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MACH_O_TYPE = mh_dylib;
 				PRODUCT_BUNDLE_IDENTIFIER = yu.SimpleTableViewController;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
@@ -656,9 +662,11 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MACH_O_TYPE = mh_dylib;
 				PRODUCT_BUNDLE_IDENTIFIER = yu.CommonUtils;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
@@ -683,9 +691,11 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MACH_O_TYPE = mh_dylib;
 				PRODUCT_BUNDLE_IDENTIFIER = yu.CommonUtils;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
@@ -852,7 +862,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = MenuDrivenSampleTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -873,7 +883,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = MenuDrivenSampleTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

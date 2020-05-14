@@ -17,7 +17,6 @@
 		3F43DB95246B253B00C892A6 /* CommonUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F43DB80246B253B00C892A6 /* CommonUtils.framework */; };
 		3F43DB96246B253B00C892A6 /* CommonUtils.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3F43DB80246B253B00C892A6 /* CommonUtils.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		3F43DB9D246B254300C892A6 /* UIKit+Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F845727246B23590082AA07 /* UIKit+Utility.swift */; };
-		3F43DB9F246B25D500C892A6 /* SimpleTableDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F43DB9E246B25D500C892A6 /* SimpleTableDelegate.swift */; };
 		3F43DBA1246B2AA500C892A6 /* MainMenuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F43DBA0246B2AA500C892A6 /* MainMenuViewModel.swift */; };
 		3F8456FC246B20980082AA07 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8456FB246B20980082AA07 /* AppDelegate.swift */; };
 		3F845700246B20980082AA07 /* MainMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8456FF246B20980082AA07 /* MainMenuViewController.swift */; };
@@ -92,7 +91,6 @@
 		3F43DB80246B253B00C892A6 /* CommonUtils.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CommonUtils.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F43DB82246B253B00C892A6 /* CommonUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommonUtils.h; sourceTree = "<group>"; };
 		3F43DB83246B253B00C892A6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3F43DB9E246B25D500C892A6 /* SimpleTableDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleTableDelegate.swift; sourceTree = "<group>"; };
 		3F43DBA0246B2AA500C892A6 /* MainMenuViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuViewModel.swift; sourceTree = "<group>"; };
 		3F8456F8246B20980082AA07 /* MenuDrivenSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MenuDrivenSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F8456FB246B20980082AA07 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -164,7 +162,6 @@
 			isa = PBXGroup;
 			children = (
 				3F43DB58246B24BC00C892A6 /* SimpleTableViewController.h */,
-				3F43DB9E246B25D500C892A6 /* SimpleTableDelegate.swift */,
 				3F845720246B22EB0082AA07 /* SimpleTableViewController.swift */,
 				3F43DB75246B24D900C892A6 /* SimpleTableViewModelProtocol.swift */,
 				3F43DB59246B24BC00C892A6 /* Info.plist */,
@@ -511,7 +508,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				3F43DB74246B24C600C892A6 /* SimpleTableViewController.swift in Sources */,
-				3F43DB9F246B25D500C892A6 /* SimpleTableDelegate.swift in Sources */,
 				3F43DB76246B24D900C892A6 /* SimpleTableViewModelProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

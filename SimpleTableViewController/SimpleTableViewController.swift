@@ -44,9 +44,12 @@ open class SimpleTableViewController: UIViewController {
     }()
     
     public let viewModel: SimpleTableViewModelProtocol
+    weak open var delegate: SimpleTableDelegate?
     
-    public init(viewModel: SimpleTableViewModelProtocol) {
+    public init(viewModel: SimpleTableViewModelProtocol,
+                delegate: SimpleTableDelegate? = nil) {
         self.viewModel = viewModel
+        self.delegate = delegate
         
         super.init(nibName: nil, bundle: nil)
         
@@ -69,7 +72,7 @@ open class SimpleTableViewController: UIViewController {
 
 }
 
-extension SimpleTableViewController: UITableViewDataSource, UITableViewDelegate {
+extension SimpleTableViewController: UITableViewDataSource {
     
     open func numberOfSections(in tableView: UITableView) -> Int {
         viewModel.sectionCount
@@ -108,4 +111,13 @@ extension SimpleTableViewController: UITableViewDataSource, UITableViewDelegate 
         return cell
     }
 
+}
+
+extension SimpleTableViewController: UITableViewDelegate {
+    
+    open func tableView(_ tableView: UITableView,
+                        didSelectRowAt indexPath: IndexPath) {
+        delegate?.didSelect(at: indexPath)
+    }
+    
 }

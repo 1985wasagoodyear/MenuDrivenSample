@@ -22,9 +22,10 @@ class MainMenuViewController: SimpleTableViewController {
     var popover: UIViewController?
     let menuViewModel: MainMenuViewModel
     
-    init(viewModel: MainMenuViewModel) {
+    init(viewModel: MainMenuViewModel,
+         delegate: SimpleTableDelegate? = nil) {
         self.menuViewModel = viewModel
-        super.init(viewModel: viewModel)
+        super.init(viewModel: viewModel, delegate: delegate)
         tableView.backgroundView = UIView()
         navigationItem.setRightBarButton(menuButton, animated: false)
         menuViewModel.bind {
@@ -45,7 +46,8 @@ class MainMenuViewController: SimpleTableViewController {
     
     @objc func menuButtonAction(_ sender: UIBarButtonItem) {
         let optionsVM = APIOptionsViewModel()
-        let popoverContent = SimpleTableViewController(viewModel: optionsVM)
+        let popoverContent = SimpleTableViewController(viewModel: optionsVM,
+                                                delegate: self)
         popoverContent.modalPresentationStyle = .popover
         
         if let popover = popoverContent.popoverPresentationController {
@@ -69,10 +71,9 @@ class MainMenuViewController: SimpleTableViewController {
     
 }
 
-extension MainMenuViewController {
+extension MainMenuViewController: SimpleTableDelegate {
     
-    func tableView(_ tableView: UITableView,
-                   didSelectRowAt indexPath: IndexPath) {
+    func didSelect(at indexPath: IndexPath) {
         guard let popover = popover else { return }
         popover.dismiss(animated: true) {
             self.menuViewModel.select(indexPath)
